@@ -4,11 +4,7 @@ on:
   schedule:
     - cron: '0 16 * * *' # 自动运行时间晚上12点
   workflow_dispatch: # 允许手动触发
-    inputs:
-      input:
-        description:"Test"
-        required:true
-        default:"run"
+
 
 jobs:
   build:
