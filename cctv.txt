@@ -1,3 +1,1 @@
 央视频道,#genre#
-CCTV7,http://183.63.15.42:9901/tsfile/live/37327_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV10,http://183.63.15.42:9901/tsfile/live/37330_1.m3u8?key=txiptv&playlive=1&authid=0
