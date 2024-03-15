@@ -1,1 +1,7 @@
 央视频道,#genre#
+CCTV2,http://183.63.15.42:9901/tsfile/live/37322_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV3,http://183.63.15.42:9901/tsfile/live/37323_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV7,http://183.63.15.42:9901/tsfile/live/37327_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV8,http://183.63.15.42:9901/tsfile/live/37328_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV9,http://183.63.15.42:9901/tsfile/live/37329_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV15,http://183.63.15.42:9901/tsfile/live/37335_1.m3u8?key=txiptv&playlive=1&authid=0
