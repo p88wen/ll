@@ -1,6 +1,3 @@
 其他频道,#genre#
-广东影视,http://219.135.208.218:8083/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
-广东新闻,http://219.135.208.218:8083/tsfile/live/0018_1.m3u8?key=txiptv&playlive=1&authid=0
-广东珠江,http://219.135.208.218:8083/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
-金鹰卡通,http://219.135.208.218:8083/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0
-2024-03-22更新,#genre#
+广东体育,http://219.137.29.213:4433/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0
+2024-03-23更新,#genre#
