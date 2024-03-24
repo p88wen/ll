@@ -11,8 +11,7 @@ CCTV15,http://183.63.15.42:9901/tsfile/live/37335_1.m3u8?key=txiptv&playlive=1&a
 江西卫视,http://183.63.15.42:9901/tsfile/live/37351_1.m3u8?key=txiptv&playlive=1&authid=0
 浙江卫视,http://219.137.29.213:4433/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0
 湖南卫视,http://219.137.29.213:4433/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0
-辽宁卫视,http://183.63.15.42:9901/tsfile/live/37354_1.m3u8?key=txiptv&playlive=1&authid=0
 
 其他频道,#genre#
 广东体育,http://219.137.29.213:4433/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0
-2024-03-23更新,#genre#
+2024-03-24更新,#genre#
