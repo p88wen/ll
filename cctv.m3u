@@ -1,11 +1,31 @@
 #EXTM3U
 #EXTINF:-1 group-title="央视频道",CCTV2
-http://183.63.15.42:9901/tsfile/live/37322_1.m3u8?key=txiptv&playlive=1&authid=0
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 group-title="央视频道",CCTV3
-http://183.63.15.42:9901/tsfile/live/37323_1.m3u8?key=txiptv&playlive=1&authid=0
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV4
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV5
+http://183.63.15.42:9901/tsfile/live/37325_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV5+
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0016_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV6
+http://183.63.15.42:9901/tsfile/live/37326_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV6
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV7
+http://183.63.15.42:9901/tsfile/live/37327_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 group-title="央视频道",CCTV8
-http://183.63.15.42:9901/tsfile/live/37328_1.m3u8?key=txiptv&playlive=1&authid=0
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 group-title="央视频道",CCTV9
-http://183.63.15.42:9901/tsfile/live/37329_1.m3u8?key=txiptv&playlive=1&authid=0
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV11
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV13
+http://183.63.15.42:9901/tsfile/live/37333_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV13
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",CCTV14
+http://183.63.15.42:9901/tsfile/live/37334_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 group-title="央视频道",CCTV15
-http://183.63.15.42:9901/tsfile/live/37335_1.m3u8?key=txiptv&playlive=1&authid=0
+http://43.139.34.228:8008/home/storager/5d15c3b7-6bab-4199-b2cb-5fe83ace2b64/live/0015_1.m3u8?key=txiptv&playlive=1&authid=0
