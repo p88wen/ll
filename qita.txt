@@ -1,2 +1,4 @@
 其他频道,#genre#
-2024-03-26更新,#genre#
+广东新闻,http://219.135.208.218:8083/tsfile/live/0018_1.m3u8?key=txiptv&playlive=1&authid=0
+广东珠江,http://219.135.208.218:8083/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
+2024-03-27更新,#genre#
