@@ -1,0 +1,4 @@
+#EXTINF:-1 group-title="卫视频道",广东卫视
+http://116.21.123.204:4433/tsfile/live/0125_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="卫视频道",江苏卫视
+http://116.21.123.204:4433/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0
