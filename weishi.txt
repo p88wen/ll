@@ -1,16 +1,2 @@
 卫视频道,#genre#
-吉林卫视,http://219.135.208.218:8083/tsfile/live/0116_1.m3u8?key=txiptv&playlive=1&authid=0
-安徽卫视,http://219.135.208.218:8083/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0
-广东南方卫视,http://219.135.208.218:8083/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0
-广东卫视,http://219.137.29.213:4433/tsfile/live/0125_1.m3u8?key=txiptv&playlive=1&authid=0
-江苏卫视,http://219.137.29.213:4433/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0
-河南卫视,http://219.135.208.218:8083/tsfile/live/0139_1.m3u8?key=txiptv&playlive=1&authid=0
-浙江卫视,http://219.137.29.213:4433/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0
-深圳卫视,http://219.135.208.218:8083/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0
-湖北卫视,http://219.135.208.218:8083/tsfile/live/0132_1.m3u8?key=txiptv&playlive=1&authid=0
-湖南卫视,http://219.137.29.213:4433/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0
-湖南卫视,http://219.135.208.218:8083/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0
-贵州卫视,http://219.135.208.218:8083/tsfile/live/0120_1.m3u8?key=txiptv&playlive=1&authid=0
-辽宁卫视,http://219.135.208.218:8083/tsfile/live/0121_1.m3u8?key=txiptv&playlive=1&authid=0
-重庆卫视,http://219.135.208.218:8083/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0
-黑龙江卫视,http://219.135.208.218:8083/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0
+江苏卫视,http://116.21.123.204:4433/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0
