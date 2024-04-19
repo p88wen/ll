@@ -334,7 +334,7 @@ results.sort(key=lambda x: channel_key(x[0]))
 
 result_counter = 8  # 每个频道需要的个数
 
-with open("itvlist.txt", 'w', encoding='utf-8') as file:
+with open("tvlist.txt", 'w', encoding='utf-8') as file:
     channel_counters = {}
     file.write('央视频道,#genre#\n')
     for result in results:
@@ -378,7 +378,7 @@ with open("itvlist.txt", 'w', encoding='utf-8') as file:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
 
-with open("itvlist.m3u", 'w', encoding='utf-8') as file:
+with open("tvlist.m3u", 'w', encoding='utf-8') as file:
     channel_counters = {}
     file.write('#EXTM3U\n')
     for result in results:
