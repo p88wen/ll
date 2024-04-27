@@ -91,11 +91,11 @@ for province in provinces_isps:
         	#org = "CHINA UNICOM China169 Backbone"
 		org = "China Unicom IP network China169 Guangdong province"
 	elif isp == "移动":
-        	org = "China Mobile communications corporation"
-    	elif isp == "珠江":
-        	org = "China Unicom Guangzhou network"
+		org = "China Mobile communications corporation"
+	elif isp  == "珠江":
+		org = "China Unicom Guangzhou network"
 	else:
-        	org = ""
+		org = ""
 	result = search_and_get_results(province,org)
 	valid_ips.append(result)
 	with open("res.txt", "w") as file:
