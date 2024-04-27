@@ -65,14 +65,14 @@ def search_and_get_results(province, org):
             urls_all = re.findall(pattern, page_content)
             result_urls = set(urls_all)
             print(f"{current_time} result_urls: {result_urls}")
-            if org = "Chinanet":                
-                isp == "电信"
-            elif org = "China Unicom IP network China169 Guangdong province":                
-                isp == "联通"
-            elif org = "China Mobile communications corporation":                
-                isp == "移动"
-            elif org = "China Unicom Guangzhou network":                
-                isp == "珠江"
+            if org == "Chinanet":                
+                isp = "电信"
+            elif org == "China Unicom IP network China169 Guangdong province":                
+                isp = "联通"
+            elif org == "China Mobile communications corporation":                
+                isp = "移动"
+            elif org == "China Unicom Guangzhou network":                
+                isp = "珠江"
             else:
                 isp = ""
             for url in urls_all:
