@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: pip install selenium requests futures eventlet
 
-      - name: Run ce
-        run: python ${{ github.workspace }}/ce.py
+      - name: Run ice
+        run: python ${{ github.workspace }}/ice.py
 
       #- name: Run itv
         #run: python ${{ github.workspace }}/itv.py
