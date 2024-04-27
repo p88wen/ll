@@ -65,12 +65,21 @@ def search_and_get_results(province, org):
             urls_all = re.findall(pattern, page_content)
             result_urls = set(urls_all)
             print(f"{current_time} result_urls: {result_urls}")
-            
+            if org = "Chinanet":                
+                isp == "电信"
+            elif org = "China Unicom IP network China169 Guangdong province":                
+                isp == "联通"
+            elif org = "China Mobile communications corporation":                
+                isp == "移动"
+            elif org = "China Unicom Guangzhou network":                
+                isp == "珠江
+            else:
+                isp = ""
             for url in urls_all:
                 ip_port = url.replace("http://", "")
                 video_url = url + urls_udp
                 if is_url_accessible(video_url):
-                    result = url, org
+                    result = url, isp, province
                     results.append(result)  # 将结果保存到results列表中
                 else:
                     print(f"{current_time} {video_url} 无效")
