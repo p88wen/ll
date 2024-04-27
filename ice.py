@@ -82,7 +82,7 @@ def search_and_get_results(province, org):
                     result = url, isp, province                    
                 else:
                     print(f"{current_time} {video_url} 无效")
-            print(f"{current_time} result: {result}"
+            print(f"{current_time} result: {result}")
             results.append(result)  # 将结果保存到results列表中
             return results
         except Exception as e:
