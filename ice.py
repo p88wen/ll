@@ -64,15 +64,15 @@ def search_and_get_results(province,org):
             pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"
             urls_all = re.findall(pattern, page_content)
             result_urls = set(urls_all)
-			print(f"{current_time} result_urls: {result_urls}")
-			for url in urls_all:
-				ip_port = url.replace("http://", "")
-				video_url = url + urls_udp
-				if is_url_accessible(video_url):
-					result = url,org
-					results.append(result)
-				else:
-					print(f"{current_time} {video_url} 无效")				
+            print(f"{current_time} result_urls: {result_urls}")
+            for url in urls_all:
+            	ip_port = url.replace("http://", "")
+            	video_url = url + urls_udp
+            	if is_url_accessible(video_url):
+            		result = url,org
+            		results.append(result)
+            	else:
+            		print(f"{current_time} {video_url} 无效")				
             return results
         except Exception as e:
             timeout_cnt += 1
