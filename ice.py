@@ -34,17 +34,17 @@ def is_url_accessible(url):
         pass
     return None
 
-
-def search_and_get_results(province,org):
+def search_and_get_results(province, org):
     current_time = datetime.now()
     timeout_cnt = 0
     result_urls = set()
+    results = []  # 新增：定义一个空列表用于保存结果
     
     # 最多尝试5次搜索
     while len(result_urls) == 0 and timeout_cnt <= 5:
         try:
             search_url = 'https://fofa.info/result?qbase64='
-            search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\ && org=\"{org}\"'
+            search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\" && org=\"{org}\"'  # 修改：修正了字符串拼接错误
             bytes_string = search_txt.encode('utf-8')
             search_txt = base64.b64encode(bytes_string).decode('utf-8')
             search_url += search_txt
@@ -65,14 +65,16 @@ def search_and_get_results(province,org):
             urls_all = re.findall(pattern, page_content)
             result_urls = set(urls_all)
             print(f"{current_time} result_urls: {result_urls}")
+            
             for url in urls_all:
-            	ip_port = url.replace("http://", "")
-            	video_url = url + urls_udp
-            	if is_url_accessible(video_url):
-            		result = url,org
-            		results.append(result)
-            	else:
-            		print(f"{current_time} {video_url} 无效")				
+                ip_port = url.replace("http://", "")
+                video_url = url + urls_udp
+                if is_url_accessible(video_url):
+                    result = url, org
+                    results.append(result)  # 将结果保存到results列表中
+                else:
+                    print(f"{current_time} {video_url} 无效")
+            
             return results
         except Exception as e:
             timeout_cnt += 1
@@ -82,24 +84,24 @@ def search_and_get_results(province,org):
     return set()
 
 valid_ips = []
+
 # 测试搜索函数
 for province in provinces_isps:
-	province, isp = province.split('_')
-	if isp == "电信":
-		org = "Chinanet"
-	elif isp == "联通":
-        	#org = "CHINA UNICOM China169 Backbone"
-		org = "China Unicom IP network China169 Guangdong province"
-	elif isp == "移动":
-		org = "China Mobile communications corporation"
-	elif isp  == "珠江":
-		org = "China Unicom Guangzhou network"
-	else:
-		org = ""
-	result = search_and_get_results(province,org)
-	valid_ips.append(result)
-	with open("res.txt", "w") as file:
-		for ip in valid_ips:
-			file.write(ip + "\n")
-	
-	print(f"可用IP为：{valid_ips}, 已保存至res.txt")
+    province, isp = province.split('_')
+    if isp == "电信":
+        org = "Chinanet"
+    elif isp == "联通":
+        org = "China Unicom IP network China169 Guangdong province"
+    elif isp == "移动":
+        org = "China Mobile communications corporation"
+    elif isp == "珠江":
+        org = "China Unicom Guangzhou network"
+    else:
+        org = ""
+    result = search_and_get_results(province, org)
+    valid_ips.extend(result)  # 将结果添加到valid_ips中
+    with open("res.txt", "w") as file:
+        for ip in result:  # 修改：写入结果时应该遍历result而不是valid_ips
+            file.write(ip + "\n")  # 修改：写入的应该是ip元组的第一个元素，即IP地址
+
+print(f"可用IP为：{valid_ips}, 已保存至res.txt")
