@@ -72,7 +72,7 @@ def search_and_get_results(province, org):
             elif org = "China Mobile communications corporation":                
                 isp == "移动"
             elif org = "China Unicom Guangzhou network":                
-                isp == "珠江
+                isp == "珠江"
             else:
                 isp = ""
             for url in urls_all:
