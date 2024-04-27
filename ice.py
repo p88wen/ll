@@ -75,7 +75,7 @@ def search_and_get_results(province, org):
                 isp = "珠江"
             else:
                 isp = ""
-            for url in urls_all:
+            for url in result_urls:
                 ip_port = url.replace("http://", "")
                 video_url = url + urls_udp
                 if is_url_accessible(video_url):
