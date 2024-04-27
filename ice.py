@@ -79,11 +79,11 @@ def search_and_get_results(province, org):
                 ip_port = url.replace("http://", "")
                 video_url = url + urls_udp
                 if is_url_accessible(video_url):
-                    result = url, isp, province                    
+                    result = url, isp, province
+                    print(f"{current_time} 有效result: {result}")
+                    results.append(result)  # 将结果保存到results列表中
                 else:
                     print(f"{current_time} {video_url} 无效")
-            print(f"{current_time} result: {result}")
-            results.append(result)  # 将结果保存到results列表中
             return results
         except Exception as e:
             timeout_cnt += 1
@@ -108,6 +108,7 @@ for province in provinces_isps:
     else:
         org = ""
     result = search_and_get_results(province, org)
+    result = set(result)
     valid_ips.extend(result)  # 将结果添加到valid_ips中
     with open("res.txt", "w") as file:
         for ip in valid_ips:  # 修改：写入结果时应该遍历result而不是valid_ips
