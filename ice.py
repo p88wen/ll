@@ -64,27 +64,16 @@ def search_and_get_results(province, org):
             pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"
             urls_all = re.findall(pattern, page_content)
             result_urls = set(urls_all)
-            print(f"{current_time} result_urls: {result_urls}")
-            if org == "Chinanet":                
-                isp = "电信"
-            elif org == "China Unicom IP network China169 Guangdong province":                
-                isp = "联通"
-            elif org == "China Mobile communications corporation":                
-                isp = "移动"
-            elif org == "China Unicom Guangzhou network":                
-                isp = "珠江"
-            else:
-                isp = ""
+            print(f"{current_time} result_urls: {result_urls}")            
             for url in result_urls:
                 ip_port = url.replace("http://", "")
                 video_url = url + urls_udp
                 if is_url_accessible(video_url):
-                    result = url, isp, province
                     print(f"{current_time} 有效result: {result}")
-                    results.append(result)  # 将结果保存到results列表中
+                    result.append(video_url)  # 将结果保存到results列表中
                 else:
                     print(f"{current_time} {video_url} 无效")
-            return results
+            return result
         except Exception as e:
             timeout_cnt += 1
             print(f"{current_time} [{province}]搜索请求发生异常：{e}")
@@ -114,11 +103,8 @@ for province in provinces_isps:
         #for ip in valid_ips:  # 修改：写入结果时应该遍历result而不是valid_ips
             #ip_txt = f'{ip}\n'
             #file.write(ip_txt)  # 修改：写入的应该是ip元组的第一个元素，即IP地址
-        for ip in valid_ips:
-            ip_a = ip[0]
-            ip_o = ip[1]
-            ip_p = ip[2]
-            ip_txt = f'{ip_a},{ip_o},ip_p\n'
+        for ip in valid_ips:            
+            ip_txt = f'{ip_a},{isp},{province}\n'
             file.write(ip_txt)
 
 print(f"可用IP为：{valid_ips}, 已保存至res.txt")
