@@ -110,7 +110,7 @@ for province in provinces_isps:
     result = search_and_get_results(province, org)
     result = set(result)
     valid_ips.extend(result)  # 将结果添加到valid_ips中
-    with open("res.txt", "w") as file:
+    with open("res.txt", "a") as file:
         for ip in valid_ips:  # 修改：写入结果时应该遍历result而不是valid_ips
             ip_txt = f'{ip}\n'
             file.write(ip_txt)  # 修改：写入的应该是ip元组的第一个元素，即IP地址
