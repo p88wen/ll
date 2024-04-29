@@ -119,5 +119,6 @@ for province in provinces_isps:
             ip_o = ip[1]
             ip_p = ip[2]
             ip_txt = f'{ip_a},{ip_o},ip_p\n'
+            file.write(ip_txt)
 
 print(f"可用IP为：{valid_ips}, 已保存至res.txt")
