@@ -114,6 +114,10 @@ for province in provinces_isps:
         #for ip in valid_ips:  # 修改：写入结果时应该遍历result而不是valid_ips
             #ip_txt = f'{ip}\n'
             #file.write(ip_txt)  # 修改：写入的应该是ip元组的第一个元素，即IP地址
-        file.write(valid_ips) 
+        for ip in valid_ips:
+            ip_a = ip[0]
+            ip_o = ip[1]
+            ip_p = ip[2]
+            ip_txt = f'{ip_a},{ip_o},ip_p\n'
 
 print(f"可用IP为：{valid_ips}, 已保存至res.txt")
