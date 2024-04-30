@@ -83,9 +83,13 @@ for province in provinces_isps:
     org = org_map.get(isp, "")
     result = search_and_get_results(province, org)
     valid_ips.extend([(url, isp, province) for url in result])
-    
-print(f" 合并后列表: {valid_ips}")
+
+
+# 将集合转换为列表再进行排序
+valid_ips = list(valid_ips)    
 valid_ips = set(valid_ips)
+print(f" 合并后列表: {valid_ips}")
+
 # 按isp排序
 valid_ips.sort(key=lambda x: x[1])
 print(f" 排序后列表: {valid_ips}")
