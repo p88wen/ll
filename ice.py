@@ -7,6 +7,7 @@ from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+current_time = datetime.now()
 def is_url_accessible(url):
     try:
         response = requests.get(url, timeout=0.5)
@@ -17,7 +18,7 @@ def is_url_accessible(url):
     return False
 
 def search_and_get_results(province, org):
-    current_time = datetime.now()
+    #current_time = datetime.now()
     timeout_cnt = 0
     result_urls = set()
 
@@ -87,8 +88,9 @@ for province in provinces_isps:
 
 # 将集合转换为列表再进行排序
 valid_ips = list(valid_ips)    
-valid_ips = set(valid_ips)
 print(f" 合并后列表: {valid_ips}")
+
+valid_ips = set(valid_ips)
 
 # 按isp排序
 valid_ips.sort(key=lambda x: x[1])
