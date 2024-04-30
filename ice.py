@@ -69,9 +69,11 @@ with open("res.txt", "r") as file:
         url = parts[0]
         isp = parts[1]
         province = parts[2]
-        if is_url_accessible(url):
+        if is_url_accessible(url + "/status"):
             valid_ips.append((url, isp, province))
             print(f"{current_time} 原有效url: {url}")
+        else:
+            print(f"{current_time} 无效url: {url}")
 
 for province in provinces_isps:
     province, isp = province.split('_')
