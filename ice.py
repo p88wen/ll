@@ -93,7 +93,8 @@ print(f" 合并后列表: {valid_ips}")
 valid_ips = set(valid_ips)
 
 # 按isp排序
-valid_ips.sort(key=lambda x: x[1])
+#valid_ips.sort(key=lambda x: x[1])
+valid_ips = sorted(valid_ips, key=lambda x: x[1])
 print(f" 排序后列表: {valid_ips}")
 # 将有效的IP地址写入res.txt文件
 with open("res.txt", "a") as file:
