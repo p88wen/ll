@@ -7,6 +7,7 @@ from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+current_time = datetime.now()
 def is_url_accessible(url):
     try:
         response = requests.get(url, timeout=0.5)
