@@ -7,47 +7,23 @@ from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# 获取rtp目录下的文件名
-files = os.listdir('rtp')
-
-files_name = []
-
-# 去除后缀名并保存至provinces_isps
-for file in files:
-    name, extension = os.path.splitext(file)
-    files_name.append(name)
-
-#忽略不符合要求的文件名
-provinces_isps = [name for name in files_name if name.count('_') == 1]
-
-# 打印结果
-print(f"本次查询：{provinces_isps}的组播节目") 
-
-urls_udp = "/status"
-
 def is_url_accessible(url):
     try:
         response = requests.get(url, timeout=0.5)
         if response.status_code == 200:
-            return url
+            return True
     except requests.exceptions.RequestException:
         pass
-    return None
+    return False
 
 def search_and_get_results(province, org):
     current_time = datetime.now()
     timeout_cnt = 0
     result_urls = set()
-    results = []  # 新增：定义一个空列表用于保存结果
-    
-    # 最多尝试5次搜索
+
     while len(result_urls) == 0 and timeout_cnt <= 5:
         try:
-            search_url = 'https://fofa.info/result?qbase64='
-            search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\" && org=\"{org}\"'  # 修改：修正了字符串拼接错误
-            bytes_string = search_txt.encode('utf-8')
-            search_txt = base64.b64encode(bytes_string).decode('utf-8')
-            search_url += search_txt
+            search_url = f"https://fofa.info/result?qbase64={base64.b64encode(f'\"udpxy\" && country=\"CN\" && region=\"{province}\" && org=\"{org}\"'.encode('utf-8')).decode('utf-8')}"
             print(f"{current_time} province: {province}, search_url: {search_url}")
 
             chrome_options = Options()
@@ -65,46 +41,54 @@ def search_and_get_results(province, org):
             urls_all = re.findall(pattern, page_content)
             result_urls = set(urls_all)
             print(f"{current_time} result_urls: {result_urls}")            
-            for url in result_urls:
-                ip_port = url.replace("http://", "")
-                video_url = url + urls_udp
-                if is_url_accessible(video_url):
-                    print(f"{current_time} 有效result: {result}")
-                    result.append(video_url)  # 将结果保存到results列表中
-                else:
-                    print(f"{current_time} {video_url} 无效")
-            return result
+            results = [url + "/status" for url in result_urls if is_url_accessible(url + "/status")]
+            print(f"{current_time} 有效result: {results}")
+            return results
         except Exception as e:
             timeout_cnt += 1
             print(f"{current_time} [{province}]搜索请求发生异常：{e}")
     
     print(f"{current_time} 搜索IPTV频道源[{province}]，超时次数过多：{timeout_cnt}次，停止处理")
-    return set()
+    return []
 
-valid_ips = []
+# 获取rtp目录下的文件名
+files = os.listdir('rtp')
+
+# 去除后缀名并保存至provinces_isps
+provinces_isps = [os.path.splitext(file)[0] for file in files if os.path.splitext(file)[0].count('_') == 1]
 
 # 测试搜索函数
+valid_ips = []
+
+# 检查原res.txt中的链接有效性并加入valid_ips
+with open("res.txt", "r") as file:
+    for line in file:
+        parts = line.strip().split(',')
+        url = parts[0]
+        isp = parts[1]
+        province = parts[2]
+        if is_url_accessible(url):
+            valid_ips.append((url, isp, province))
+
 for province in provinces_isps:
     province, isp = province.split('_')
-    if isp == "电信":
-        org = "Chinanet"
-    elif isp == "联通":
-        org = "China Unicom IP network China169 Guangdong province"
-    elif isp == "移动":
-        org = "China Mobile communications corporation"
-    elif isp == "珠江":
-        org = "China Unicom Guangzhou network"
-    else:
-        org = ""
+    org_map = {
+        "电信": "Chinanet",
+        "联通": "China Unicom IP network China169 Guangdong province",
+        "移动": "China Mobile communications corporation",
+        "珠江": "China Unicom Guangzhou network"
+    }
+    org = org_map.get(isp, "")
     result = search_and_get_results(province, org)
-    result = set(result)
-    valid_ips.extend(result)  # 将结果添加到valid_ips中
-    with open("res.txt", "a") as file:
-        #for ip in valid_ips:  # 修改：写入结果时应该遍历result而不是valid_ips
-            #ip_txt = f'{ip}\n'
-            #file.write(ip_txt)  # 修改：写入的应该是ip元组的第一个元素，即IP地址
-        for ip in valid_ips:            
-            ip_txt = f'{ip_a},{isp},{province}\n'
-            file.write(ip_txt)
+    valid_ips.extend([(url, isp, province) for url in result])
 
-print(f"可用IP为：{valid_ips}, 已保存至res.txt")
+# 按isp排序
+valid_ips.sort(key=lambda x: x[1])
+
+# 将有效的IP地址写入res.txt文件
+with open("res.txt", "a") as file:
+    for ip_info in valid_ips:
+        ip_txt = f"{ip_info[0]},{ip_info[1]},{ip_info[2]}\n"
+        file.write(ip_txt)
+
+print(f"可用IP为：{valid_ips}，已保存至res.txt")
