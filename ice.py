@@ -41,7 +41,8 @@ def search_and_get_results(province, org):
             urls_all = re.findall(pattern, page_content)
             result_urls = set(urls_all)
             print(f"{current_time} result_urls: {result_urls}")            
-            results = [url + "/status" for url in result_urls if is_url_accessible(url + "/status")]
+            #results = [url + "/status" for url in result_urls if is_url_accessible(url + "/status")]
+            results = [url  for url in result_urls if is_url_accessible(url + "/status")]
             print(f"{current_time} 有效result: {results}")
             return results
         except Exception as e:
@@ -69,6 +70,7 @@ with open("res.txt", "r") as file:
         province = parts[2]
         if is_url_accessible(url):
             valid_ips.append((url, isp, province))
+            print(f"{current_time} 原有效url: {url}")
 
 for province in provinces_isps:
     province, isp = province.split('_')
@@ -81,10 +83,10 @@ for province in provinces_isps:
     org = org_map.get(isp, "")
     result = search_and_get_results(province, org)
     valid_ips.extend([(url, isp, province) for url in result])
-
+print(f"{current_time} 合并后列表: {valid_ips}")
 # 按isp排序
 valid_ips.sort(key=lambda x: x[1])
-
+print(f"{current_time} 排序后列表: {valid_ips}")
 # 将有效的IP地址写入res.txt文件
 with open("res.txt", "a") as file:
     for ip_info in valid_ips:
