@@ -69,6 +69,8 @@ with open("res.txt", "r") as file:
         url = parts[0]
         isp = parts[1]
         province = parts[2]
+        with open("res_bak.txt", "a") as file:
+            file.write(line)
         if is_url_accessible(url + "/status"):
             valid_ips.append((url, isp, province))
             print(f"{current_time} 原有效url: {url}")
@@ -99,7 +101,7 @@ valid_ips = set(valid_ips)
 valid_ips = sorted(valid_ips, key=lambda x: x[1])
 print(f" 排序后列表: {valid_ips}")
 # 将有效的IP地址写入res.txt文件
-with open("res.txt", "a") as file:
+with open("res.txt", "w") as file:
     for ip_info in valid_ips:
         ip_txt = f"{ip_info[0]},{ip_info[1]},{ip_info[2]}\n"
         file.write(ip_txt)
