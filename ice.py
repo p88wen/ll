@@ -7,7 +7,6 @@ from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-current_time = datetime.now()
 def is_url_accessible(url):
     try:
         response = requests.get(url, timeout=0.5)
@@ -85,11 +84,11 @@ for province in provinces_isps:
     result = search_and_get_results(province, org)
     valid_ips.extend([(url, isp, province) for url in result])
     
-print(f"{current_time} 合并后列表: {valid_ips}")
+print(f" 合并后列表: {valid_ips}")
 valid_ips = set(valid_ips)
 # 按isp排序
 valid_ips.sort(key=lambda x: x[1])
-print(f"{current_time} 排序后列表: {valid_ips}")
+print(f" 排序后列表: {valid_ips}")
 # 将有效的IP地址写入res.txt文件
 with open("res.txt", "a") as file:
     for ip_info in valid_ips:
