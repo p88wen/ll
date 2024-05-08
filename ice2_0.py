@@ -36,7 +36,8 @@ def search_and_get_results(province, org):
 
             pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"
             urls_all = re.findall(pattern, page_content)
-            result_urls = set(urls_all)            
+            result_urls = set(urls_all) 
+            print(f"{current_time} 获取列表： {result_urls}")	
             return result_urls
         except Exception as e:
             timeout_cnt += 1
@@ -93,6 +94,7 @@ def worker():
         try:
             channel_url = url+suffix_dict[province][isp]
             ts_lists_0 = 'temp.txt'
+            print(f"{current_time} 开始检测：{channel_url}")
 
             # 多获取的视频数据进行5秒钟限制
             with eventlet.Timeout(5, False):
