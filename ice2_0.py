@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 import requests
+import base64
 import re
 import os
 import threading
