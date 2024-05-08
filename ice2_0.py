@@ -52,19 +52,6 @@ files = os.listdir('rtp')
 provinces_isps = [os.path.splitext(file)[0] for file in files if os.path.splitext(file)[0].count('_') == 1]
 
 # 测试搜索函数
-valid_ips = []
-
-# 检查原res.txt中的链接有效性并加入valid_ips
-with open("res2.txt", "r") as file:
-    for line in file:
-        parts = line.strip().split(',')
-        url = parts[0]
-        isp = parts[1]
-        province = parts[2]
-        with open("res2_bak.txt", "a") as file:
-            file.write(line)
-        valid_ips.append((url, isp, province))
-
 channels = []
 
 for province in provinces_isps:
