@@ -103,6 +103,7 @@ def worker():
                 content = requests.get(channel_url, timeout = 1).content
                 end_time = time.time()
                 response_time = (end_time - start_time) * 1
+                print(f"有效连接时间：{response_time}")
 
             if content:
                 with open(ts_lists_0, 'ab') as f:
@@ -118,6 +119,7 @@ def worker():
                 os.remove(ts_lists_0)
                 result = url, isp, f"{normalized_speed:.3f} MB/s", province
                 results.append(result)
+                print(f"{current_time} 检测结果：{result}")
                 numberx = (len(results) + len(error_channels)) / len(channels) * 100
                 print(f"可用：{len(results)} 个 , 不可用：{len(error_channels)} 个 , 总：{len(channels)} 个 ,总进度：{numberx:.2f} %。")
         except:
