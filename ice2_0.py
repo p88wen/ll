@@ -54,13 +54,13 @@ provinces_isps = [os.path.splitext(file)[0] for file in files if os.path.splitex
 valid_ips = []
 
 # 检查原res.txt中的链接有效性并加入valid_ips
-with open("res.txt", "r") as file:
+with open("res2.txt", "r") as file:
     for line in file:
         parts = line.strip().split(',')
         url = parts[0]
         isp = parts[1]
         province = parts[2]
-        with open("res_bak.txt", "a") as file:
+        with open("res2_bak.txt", "a") as file:
             file.write(line)
         valid_ips.append((url, isp, province))
 
@@ -155,7 +155,7 @@ task_queue.join()
 results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
 
 # 将有效的IP地址写入res.txt文件
-with open("res.txt", "w") as file:
+with open("res2.txt", "w") as file:
     for ip_info in results:
         ip_txt = f"{ip_info[0]},{ip_info[1]},{ip_info[3]}\n"
         file.write(ip_txt)
