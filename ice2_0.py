@@ -21,7 +21,7 @@ def search_and_get_results(province, org):
     while len(result_urls) == 0 and timeout_cnt <= 5:
         try:
             search_url = f"https://fofa.info/result?qbase64={base64.b64encode(f'\"udpxy\" && country=\"CN\" && region=\"{province}\" && org=\"{org}\"'.encode('utf-8')).decode('utf-8')}"
-            print(f"{current_time} province: {province}, search_url: {search_url}")
+            print(f"{current_time} province: {province} org: {org}, search_url: {search_url}")
 
             chrome_options = Options()
             chrome_options.add_argument('--headless')
@@ -66,15 +66,16 @@ for province in provinces_isps:
     org = org_map.get(isp, "")
     result = search_and_get_results(province, org)
     channels.extend([(url, isp, province) for url in result])
-
+    
+print(f"{current_time} 获取所有的列表：{channels}")
 
 # 定义后缀字典
 suffix_dict = {
     "广东": {
-        "电信": "/udp/102.3.1.25",
-        "移动": "/udp/101.3.1.25",
-        "联通": "/udp/100.3.1.25",
-        "珠江": "/udp/103.3.1.25"
+        "电信": "/udp/239.77.1.19:5146",
+        "移动": "/udp/239.20.0.63:3148",
+        "联通": "/udp/239.77.1.17:5146",
+        "珠江": "/udp/224.1.100.4:11111"
     }
 }
 
