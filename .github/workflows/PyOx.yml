@@ -1,4 +1,4 @@
-name: Build EXE
+name: PyOx EXE
 
 on:
   push:
