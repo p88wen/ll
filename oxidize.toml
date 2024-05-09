@@ -1,19 +1,57 @@
+# 项目元数据信息
 [application]
-name = "runpy"
-version = "1.0.0"
-authors = ["Your Name <you@example.com>"]
+name = "runpy"  # 应用程序名称
+version = "1.0.0"        # 版本号
+authors = ["Your Name <you@example.com>"]  # 作者信息
 
+# 构建配置
 [build]
-# Include the main Python script
+# 构建类型（通常为 "application"）
+type = "application"
+
+# 应用程序入口点
+[build.outputs.main]
+module = "run"  # 入口模块名称（不包括文件扩展名）
+
+# 包含的 Python 模块
 [[build.modules]]
 path = "run.py"
 
-# Additional hidden imports (optional)
-[[build.module_imports]]
-path = "_winapi"
-[[build.module_imports]]
-path = "winreg"
-[[build.module_imports]]
-path = "nt"
-[[build.module_imports]]
-path = "msvcrt"
+# Python 依赖项
+[build.dependencies.python]
+# 内置模块
+imports = [
+    "time",
+    "concurrent.futures",
+    "datetime",
+    "re",
+    "os",
+    "threading",
+]
+
+# 第三方库依赖项
+[build.dependencies.python.imports]
+requests = "requests"
+opencv-python-headless = "cv2"
+beautifulsoup4 = "bs4"
+translate = "translate"
+selenium = "selenium"
+base64 = "base64"
+queue = "queue"
+eventlet = "eventlet"
+urllib = "urllib.parse"
+
+# 其他隐藏导入（如果需要）
+#[[build.module_imports]]
+#path = "base64"
+#[[build.module_imports]]
+#path = "urllib.parse"
+
+# 其他资源文件
+#[[build.files]]
+#source = "data/*.txt" # 匹配指定目录下的所有 .txt 文件
+#destination = "data"  # 目标路径
+
+#[[build.files]]
+#source = "templates/*.html" # 匹配指定目录下的所有 .html 文件
+#destination = "templates"    # 目标路径
