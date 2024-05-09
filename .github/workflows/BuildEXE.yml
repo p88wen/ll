@@ -23,7 +23,7 @@ jobs:
       
     - name: Install dependencies
       run: |
-        pip install pyinstaller
+        pip install pyinstaller selenium requests opencv-python beautifulsoup4 translate
       
     - name: Build EXE
       run: |
