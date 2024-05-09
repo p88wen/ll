@@ -1,0 +1,42 @@
+name: Build EXE
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # Set to your desired Python version
+      
+    - name: Install PyOxidizer
+      run: |
+        pip install pyoxidizer
+      
+    - name: Build EXE
+      run: |
+        pyoxidizer build
+        
+    - name: 提交更改 #提交公开仓
+      run: |
+        git config --local user.email "xiayee87@163.com"
+        git config --local user.name "p88wen"
+        #git add . #添加新建和修改的文件
+        #git commit *.txt -m "Add generated file"
+        git add -A #所有变化的文件都添加到暂存区，包括新建、修改和删除的文件
+        git commit -m "Add compiled EXE"
+        #git pull --rebase
+        git push -f
