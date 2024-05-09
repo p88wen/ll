@@ -1,0 +1,19 @@
+[application]
+name = "runpy"
+version = "1.0.0"
+authors = ["Your Name <you@example.com>"]
+
+[build]
+# Include the main Python script
+[[build.modules]]
+path = "run.py"
+
+# Additional hidden imports (optional)
+[[build.module_imports]]
+path = "_winapi"
+[[build.module_imports]]
+path = "winreg"
+[[build.module_imports]]
+path = "nt"
+[[build.module_imports]]
+path = "msvcrt"
