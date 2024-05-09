@@ -27,7 +27,7 @@ jobs:
       
     - name: Build EXE
       run: |
-        pyinstaller --onefile --name runpy.exe run.py
+        pyinstaller --onefile --name runpy.exe --hidden-import _winapi --hidden-import winreg --hidden-import nt --hidden-import msvcrt run.py
 
     - name: 提交更改 #提交公开仓
       run: |
